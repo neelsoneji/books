@@ -1,3 +1,8 @@
+//to check book
+//developed by cRaZZysKuLL
+//version 1.2.3
+
+import java.util.*;
 class Books
 {
 	String book_title = new String();
@@ -5,7 +10,7 @@ class Books
 	Books(String book_title,String author_name)
 	{
 		this.book_title = book_title;
-		this.aithor_name = author_name;	
+		this.author_name = author_name;	
 	}
 	void Display()
 	{
@@ -35,18 +40,18 @@ class Search extends Books
 			if(title.equals(book_title))
 			{
 				System.out.println("Matched");
+				if(stat.equals(status))
+				{
+					System.out.println("Book is in stock");
+				}
+				else
+				{
+					System.out.println("Book is not in stock");
+				}
 			}
 			else
 			{
 				System.out.println("Book is not available");
-			}
-			if(stat.equals(status))
-			{
-				System.out.println("Book is in stock");
-			}
-			else
-			{
-				System.out.println("Book is not in stock");
 			}
 		}
 		
@@ -55,6 +60,19 @@ class Bookstatus
 {
 	public static void main(String[] args)
 	{
-		
+		int n;
+		Scanner sc = new Scanner(System.in);
+		n = sc.nextInt();
+		Search[] b = new Search[n];
+		for(int i=0;i<n;i++)
+		{
+			b[i] = new Search(200,"yes","TCR","BALA");
+		}
+		for(int i=0;i<n;i++)
+		{
+			System.out.print(i+1+" : ");
+			b[i].searchBook("TCR","no");
+		}
 	}
 }
+
